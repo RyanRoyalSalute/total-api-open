@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Authentication API",
+    "description": "API for user authentication via mobile, lineId, and token.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/signIn": {
+      "post": {
+        "summary": "Authenticate user and handle SMS verification.",
+        "description": "Accepts mobile number, Line ID, and optional token to authenticate the user. Sends an SMS verification code if needed.",
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "mobile",
+                  "lineId"
+                ],
+                "properties": {
+                  "mobile": {
+                    "type": "string",
+                    "description": "User's mobile phone number.",
+                    "example": "0912345678"
+                  },
+                  "lineId": {
+                    "type": "string",
+                    "description": "User's Line ID.",
+                    "example": "line1234"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "Optional token for authentication.",
+                    "example": "abc123xyz"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully authenticated or SMS sent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "example": 2000
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Verification code sent successfully."
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "verification_code": {
+                          "type": "integer",
+                          "example": 123456
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "example": 4001
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Mobile phone and Line ID are required."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token verification failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "example": 4002
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token or token verification failed."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

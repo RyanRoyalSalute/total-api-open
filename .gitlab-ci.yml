@@ -1,0 +1,43 @@
+variables:
+  SSH_PRIVATE_KEY: $DEPLOY_KEY
+  SERVER_USER: $SERVER_USER
+  SERVER_IP: $SERVER_IP
+  SERVER_SIT_IP: $SERVER_SIT_IP
+  PROJECT_PATH: $PROJECT_PATH  # Rely on GitLab CI/CD variable
+
+stages:
+  - deploy
+
+.deploy-template: &deploy-template
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || (apt-get update -y && apt-get install openssh-client -y)' # Ensure SSH is installed
+    - eval $(ssh-agent -s) # Start SSH agent
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - # Add the passphrase-free key
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+    - ssh-keyscan -H $TARGET_IP >> ~/.ssh/known_hosts # Add server to known_hosts
+  script:
+    - echo "Deploying to SERVER_USER=$SERVER_USER, TARGET_IP=$TARGET_IP, PATH=$PROJECT_PATH"
+    - ssh $SERVER_USER@$TARGET_IP "cd $PROJECT_PATH && git pull origin $CI_COMMIT_REF_NAME"
+    - ssh $SERVER_USER@$TARGET_IP "cd $PROJECT_PATH && composer install --no-dev --optimize-autoloader"
+    - ssh $SERVER_USER@$TARGET_IP "cd $PROJECT_PATH && php artisan migrate --force"
+    - ssh $SERVER_USER@$TARGET_IP "cd $PROJECT_PATH && php artisan config:clear && php artisan route:clear && php artisan cache:clear"
+    - ssh $SERVER_USER@$TARGET_IP "cd $PROJECT_PATH && php artisan storage:link"
+    - ssh $SERVER_USER@$TARGET_IP "cd $PROJECT_PATH && echo 'Deployment Complete!'"
+
+deploy-prd:
+  <<: *deploy-template
+  variables:
+    TARGET_IP: $SERVER_IP
+    SERVER_USER: $SERVER_USER
+  only:
+    - main
+
+deploy-sit:
+  <<: *deploy-template
+  variables:
+    TARGET_IP: $SERVER_SIT_IP
+    SERVER_USER: $SERVER_USER
+  only:
+    - develop

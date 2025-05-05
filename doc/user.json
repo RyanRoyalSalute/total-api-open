@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  title: User Profile API
+  version: 1.0.0
+  description: API for managing user profiles, including avatar upload and profile updates.
+paths:
+  /user/avatar:
+    post:
+      tags:
+        - User
+      summary: Upload Avatar
+      description: Uploads a user avatar. File should be less than 5MB and will be stored with the user's mobile as the filename.
+      parameters:
+        - name: mobile
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Mobile phone number associated with the user.
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "Bearer {token}"
+          description: Bearer token for authentication.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: The avatar file to upload.
+              required:
+                - avatar
+      responses:
+        '200':
+          description: Avatar uploaded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 2001
+                  message:
+                    type: string
+                    example: Avatar uploaded successfully.
+                  data:
+                    type: object
+                    properties:
+                      avatar_url:
+                        type: string
+                        example: http://example.com/storage/user/0912345678_avatar.png
+        '400':
+          description: Validation error or invalid file.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 4001
+                  message:
+                    type: string
+                    example: Invalid or missing avatar file.
+                  data:
+                    type: object
+                    nullable: true
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: Unauthorized.
+                  data:
+                    type: object
+                    nullable: true
+  /user/profile:
+    put:
+      tags:
+        - User
+      summary: Update Profile
+      description: Updates the user's name, gender, and birthdate.
+      parameters:
+        - name: mobile
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Mobile phone number associated with the user.
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "Bearer {token}"
+          description: Bearer token for authentication.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: John Doe
+                  description: The user's full name.
+                gender:
+                  type: string
+                  example: male
+                  description: The user's gender. Allowed values - male, female, other.
+                birth:
+                  type: string
+                  format: date
+                  example: 2000-01-01
+                  description: The user's birthdate in YYYY-MM-DD format.
+              required:
+                - name
+                - gender
+                - birth
+      responses:
+        '200':
+          description: Profile updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 2002
+                  message:
+                    type: string
+                    example: Profile updated successfully.
+                  data:
+                    type: object
+                    nullable: true
+        '400':
+          description: Validation error or missing data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 4003
+                  message:
+                    type: string
+                    example: Name, gender, and birth date are required.
+                  data:
+                    type: object
+                    nullable: true
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: Unauthorized.
+                  data:
+                    type: object
+                    nullable: true
