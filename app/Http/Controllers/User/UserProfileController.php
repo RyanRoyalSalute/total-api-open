@@ -27,7 +27,7 @@ class UserProfileController extends Controller
             return apiResponse(4002, null, 'File size exceeds the limit of 5MB.', 400);
         }
 
-        $userFolder = 'GOLDF/users';
+        $userFolder = 'Saabisu/users';
         if (!Storage::disk('public')->exists($userFolder)) {
             Storage::disk('public')->makeDirectory($userFolder);
         }

@@ -19,12 +19,6 @@ class CreateCourseClassroomTable extends Migration
 
         DB::table('course_classroom')->insert([
             ['course_id' => 1, 'classroom_id' => 1, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 2, 'classroom_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 3, 'classroom_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 4, 'classroom_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 5, 'classroom_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 6, 'classroom_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 7, 'classroom_id' => 3, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 

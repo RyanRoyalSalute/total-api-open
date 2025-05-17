@@ -36,22 +36,19 @@ class CreateCourseTable extends Migration
                 'created_by' => 0,
                 'updated_by' => 0,
                 'shop_brand_id' => 1,
-                'course_name' => '尊榮流體熊體驗班',
-                'course_description' => '',
+                'course_name' => '育成品牌(終身)',
+                'course_description' => '單次購買，終生訂閱，是所有新創品牌的優先選擇，極低建置門檻，現在就建立您的變現收費頁\n• 可營業品牌數:1品牌\n• 可代理人:2人\n• 交易手續費:每筆7.5%\n• 金流服務費:1~3%\n• 提供收費上限：每天$2,000, 每月$20,000',
                 'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_1_1.png',
-                    'storage/GOLDF/courses/course_1_2.png',
-                    'storage/GOLDF/courses/course_1_3.png',
-                    'storage/GOLDF/courses/course_1_4.png'
+                    'storage/Saabisu/courses/course_1_1.png',
                 ]),
-                'course_tab' => json_encode(['桃園富國']),
-                'course_colors' => json_encode(['#FBE7C6', '#FBC740']),
-                'course_dates' => json_encode(['1', '2', '4']),
-                'course_times' => json_encode(['16:00']),
+                'course_tab' => json_encode(['快訂']),
+                'course_colors' => json_encode(['#D9EAD3', '#8DAE7F']),
+                'course_dates' => json_encode(['1', '2', '3', '4', '5', '6', '7']),
+                'course_times' => json_encode(['00:00']),
                 'period' => 60,
                 'sort' => 0,
                 'course_price_id' => 5,
-                'material_id' => json_encode([]), // Empty array for no materials
+                'material_id' => json_encode([]),
                 'on_sale' => true,
                 'sort' => 0,
                 'pinned' => false,
@@ -62,15 +59,18 @@ class CreateCourseTable extends Migration
                 'created_by' => 0,
                 'updated_by' => 0,
                 'shop_brand_id' => 1,
-                'course_name' => '下午茶遇到流體藝術',
-                'course_description' => '',
+                'course_name' => '卓越品牌訂閱',
+                'course_description' => '可包月/包年訂閱，是邁向穩健品牌的最佳選擇，最大化收益，現在就建立您的變現收費頁
+
+• 可營業品牌數:2品牌
+• 可代理人:10人
+• 交易手續費:每筆2.5%
+• 金流服務費:1~3%
+• 提供收費上限：每天$2,000, 每月$20,000',
                 'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_2_1.png',
-                    'storage/GOLDF/courses/course_2_2.png',
-                    'storage/GOLDF/courses/course_2_3.png',
-                    'storage/GOLDF/courses/course_2_4.png'
+                    'storage/Saabisu/courses/course_2_1.png',
                 ]),
-                'course_tab' => json_encode(['桃園富國']),
+                'course_tab' => json_encode(['快訂']),
                 'course_colors' => json_encode(['#FBE7C6', '#FBC740']),
                 'course_dates' => json_encode(['5']),
                 'course_times' => json_encode(['15:00']),
@@ -87,21 +87,24 @@ class CreateCourseTable extends Migration
                 'created_by' => 0,
                 'updated_by' => 0,
                 'shop_brand_id' => 1,
-                'course_name' => '流體藝術師資班',
-                'course_description' => '',
+                'course_name' => '尊榮品牌訂閱',
+                'course_description' => '可包月/包年訂閱，是創造副業品牌的關鍵選擇，建立品牌組織，擴大服務區域，現在就建立您的變現收費頁
+
+• 可營業品牌數:5品牌
+• 可代理人:50人
+• 交易手續費:每筆1%
+• 金流服務費:1~3%
+• 提供收費上限：每天$2,000, 每月$20,000',
                 'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_3_1.png',
-                    'storage/GOLDF/courses/course_3_2.png',
-                    'storage/GOLDF/courses/course_3_3.png',
-                    'storage/GOLDF/courses/course_3_4.png'
+                    'storage/Saabisu/courses/course_3_1.png',
                 ]),
-                'course_tab' => json_encode(['桃園富國']),
+                'course_tab' => json_encode(['快訂']),
                 'course_colors' => json_encode(['#FBE7C6', '#FBC740']),
                 'course_dates' => json_encode(['3']),
                 'course_times' => json_encode(['14:00', '16:00']),
                 'period' => 60,
                 'course_price_id' => 1,
-                'material_id' => json_encode([]), // Empty array for no materials
+                'material_id' => json_encode([]), 
                 'on_sale' => true,
                 'sort' => 0,
                 'pinned' => false,
@@ -112,13 +115,19 @@ class CreateCourseTable extends Migration
                 'created_by' => 0,
                 'updated_by' => 0,
                 'shop_brand_id' => 1,
-                'course_name' => '周末流體熊',
-                'course_description' => '',
+                'course_name' => '契約企業品牌',
+                'course_description' => '聯繫快訂業務，共創SAABISU品牌聯盟，是本地活躍品牌的不二選擇，現在就聯繫業務，建立您的變現收費頁
+
+• 可營業品牌數:1品牌
+• 可代理人:2人
+• 交易手續費:每筆7.5%
+• 金流服務費:1~3%
+• 提供收費上限：每天$2,000, 每月$20,000',
                 'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_4_1.png',
-                    'storage/GOLDF/courses/course_4_2.png',
-                    'storage/GOLDF/courses/course_4_3.png',
-                    'storage/GOLDF/courses/course_4_4.png'
+                    'storage/Saabisu/courses/course_4_1.png',
+                    'storage/Saabisu/courses/course_4_2.png',
+                    'storage/Saabisu/courses/course_4_3.png',
+                    'storage/Saabisu/courses/course_4_4.png'
                 ]),
                 'course_tab' => json_encode(['桃園富國']),
                 'course_colors' => json_encode(['#FBE7C6', '#FBC740']),
@@ -127,81 +136,6 @@ class CreateCourseTable extends Migration
                 'period' => 60,
                 'course_price_id' => 1,
                 'material_id' => json_encode([]), // Empty array for no materials
-                'on_sale' => true,
-                'sort' => 0,
-                'pinned' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'created_by' => 0,
-                'updated_by' => 0,
-                'shop_brand_id' => 1,
-                'course_name' => '陽光親子流體熊',
-                'course_description' => '',
-                'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_5_1.png',
-                    'storage/GOLDF/courses/course_5_2.png',
-                    'storage/GOLDF/courses/course_5_3.png',
-                    'storage/GOLDF/courses/course_5_4.png'
-                ]),
-                'course_tab' => json_encode(['社區中心']),
-                'course_colors' => json_encode(['#B4F8C8', '#638C80']),
-                'course_dates' => json_encode(['7']),
-                'course_times' => json_encode(['10:00']),
-                'period' => 60,
-                'course_price_id' => 1,
-                'material_id' => json_encode([]), // Empty array for no materials
-                'on_sale' => true,
-                'sort' => 0,
-                'pinned' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'created_by' => 0,
-                'updated_by' => 0,
-                'shop_brand_id' => 1,
-                'course_name' => '陽光親子流體版畫',
-                'course_description' => '',
-                'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_6_1.png',
-                    'storage/GOLDF/courses/course_6_2.png',
-                    'storage/GOLDF/courses/course_6_3.png',
-                    'storage/GOLDF/courses/course_6_4.png'
-                ]),
-                'course_tab' => json_encode(['社區中心']),
-                'course_colors' => json_encode(['#A0E7E5', '#FFC2C7']),
-                'course_dates' => json_encode(['7']),
-                'course_times' => json_encode(['14:00']),
-                'period' => 60,
-                'course_price_id' => 1,
-                'material_id' => json_encode([]), // Empty array for no materials
-                'on_sale' => true,
-                'sort' => 0,
-                'pinned' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'created_by' => 0,
-                'updated_by' => 0,
-                'shop_brand_id' => 1,
-                'course_name' => '蛇年來聚市-雙人流體熊快閃',
-                'course_description' => '2025年與無邊境市集再次相聚，在中原文創園區喜迎農曆新年，打造喜慶吉祥的年節氛圍，小文青年貨市集，體驗流體熊不一樣的年貨小物，蛇年來聚市，喜迎蛇年！',
-                'course_images' => json_encode([
-                    'storage/GOLDF/courses/course_7_1.png',
-                    'storage/GOLDF/courses/course_7_2.png',
-                    'storage/GOLDF/courses/course_7_3.png',
-                    'storage/GOLDF/courses/course_7_4.png'
-                ]),
-                'course_tab' => json_encode(['快閃']),
-                'course_colors' => json_encode(['#FFAEBC', '#EF7C8E']),
-                'course_dates' => json_encode(['2025-02-25', '2025-03-26', '2025-12-25']),
-                'course_times' => json_encode(["11:00", "12:00"]),
-                'period' => 60,
-                'course_price_id' => 1,
-                'material_id' => json_encode([4]), // Single material ID in array
                 'on_sale' => true,
                 'sort' => 0,
                 'pinned' => false,

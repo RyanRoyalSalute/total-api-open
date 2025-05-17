@@ -26,12 +26,12 @@ class CreateShopBrandsTable extends Migration
 
 
         DB::table('shop_brands')->insert([
-            'brand_code' => 'FLUIDART',
+            'brand_code' => 'Saabisu',
             'created_by' => 24002,
             'updated_by' => 24002,
-            'brand_name' => '金羽毛流體藝術',
-            'brand_logo' => 'storage/GOLDF/resources/shop_logo.png',
-            'brand_background' => 'storage/GOLDF/resources/shop_banner.png',
+            'brand_name' => '快訂 SAABISU',
+            'brand_logo' => 'storage\/FLUIDART\/resources\/\/logo_1_2a7f51b6-beb7-48c3-b1fe-b0f14e2ba7c4.png',
+            'brand_background' => 'storage\/FLUIDART\/resources\/shop_brands_1_1747606926.png',
             'teacher_permission' => false,
             'active' => true,
             'sort' => 0,

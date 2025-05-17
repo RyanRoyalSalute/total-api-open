@@ -19,12 +19,6 @@ class CreateCourseSubStoreTable extends Migration
 
         DB::table('course_sub_store')->insert([
             ['course_id' => 1, 'sub_store_id' => 1, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 2, 'sub_store_id' => 1, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 3, 'sub_store_id' => 1, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 4, 'sub_store_id' => 1, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 5, 'sub_store_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 6, 'sub_store_id' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['course_id' => 7, 'sub_store_id' => 3, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 

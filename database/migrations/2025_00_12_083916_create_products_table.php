@@ -19,6 +19,9 @@ class CreateProductsTable extends Migration
             $table->text('product_spec')->nullable(); // 商品內容規格
             $table->decimal('product_costs', 8, 2); // 教材商品零售價
             $table->timestamps(); // created_at and updated_at
+            $table->boolean('active')->default(true); // 營業中
+            $table->integer('sort')->default(0); // 排序
+            $table->boolean('pinned')->default(false); // 置頂
         });
 
         // Inserting provided data into the products table
@@ -28,7 +31,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '流體熊 23cm',
-                'product_image' => 'storage/GOLDF/product/product_1_1.png',
+                'product_image' => 'storage/Saabisu/product/product_1_1.png',
                 'product_spec' => '標準白胚公仔，現場多色顏料任用',
                 'product_costs' => 650.00,
                 'created_at' => now(),
@@ -39,7 +42,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '流體熊 33cm',
-                'product_image' => 'storage/GOLDF/product/product_2_1.png',
+                'product_image' => 'storage/Saabisu/product/product_2_1.png',
                 'product_spec' => '大型白胚公仔，現場多色顏料任用',
                 'product_costs' => 950.00,
                 'created_at' => now(),
@@ -50,7 +53,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '流體熊 53cm',
-                'product_image' => 'storage/GOLDF/product/product_3_1.png',
+                'product_image' => 'storage/Saabisu/product/product_3_1.png',
                 'product_spec' => '巨型白胚公仔，現場多色顏料任用',
                 'product_costs' => 2000.00,
                 'created_at' => now(),
@@ -61,7 +64,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '雙人流體熊快閃包',
-                'product_image' => 'storage/GOLDF/product/product_4_1.png',
+                'product_image' => 'storage/Saabisu/product/product_4_1.png',
                 'product_spec' => '標準白胚公仔x2，現場多色顏料任用',
                 'product_costs' => 0.00, // Product with no retail price
                 'created_at' => now(),
@@ -72,7 +75,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '畫布 30cm',
-                'product_image' => 'storage/GOLDF/product/product_5_1.png',
+                'product_image' => 'storage/Saabisu/product/product_5_1.png',
                 'product_spec' => '白麻畫布，現場多色顏料任用',
                 'product_costs' => 500.00,
                 'created_at' => now(),
@@ -83,7 +86,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '畫布 40cm',
-                'product_image' => 'storage/GOLDF/product/product_6_1.png',
+                'product_image' => 'storage/Saabisu/product/product_6_1.png',
                 'product_spec' => '白麻畫布，現場多色顏料任用',
                 'product_costs' => 800.00,
                 'created_at' => now(),
@@ -94,7 +97,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '畫布 50cm',
-                'product_image' => 'storage/GOLDF/product/product_7_1.png',
+                'product_image' => 'storage/Saabisu/product/product_7_1.png',
                 'product_spec' => '白麻畫布，現場多色顏料任用',
                 'product_costs' => 1200.00,
                 'created_at' => now(),
@@ -105,7 +108,7 @@ class CreateProductsTable extends Migration
                 'updated_by' => 24002,
                 'store_id' => 1, // Corresponding to sub_store ID
                 'product_name' => '尊榮體驗包',
-                'product_image' => 'storage/GOLDF/product/product_8_1.png',
+                'product_image' => 'storage/Saabisu/product/product_8_1.png',
                 'product_spec' => '鑰匙熊, 畫布, 流體熊，現場多色顏料任用',
                 'product_costs' => 1250.00,
                 'created_at' => now(),
