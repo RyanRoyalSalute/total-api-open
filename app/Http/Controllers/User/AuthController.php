@@ -75,7 +75,7 @@ class AuthController extends Controller
 
             $responseCode = $isNewUser ? 2002 : 2001;
 
-            return apiResponse($responseCode, ['verification_code_for_test' => $verificationCode], $responseMessage, 200);
+            return apiResponse($responseCode, ['verification_code' => $verificationCode], $responseMessage, 200);
 
         } catch (\Exception $e) {
             DB::rollBack(); 
