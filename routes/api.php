@@ -78,8 +78,8 @@ Route::middleware(['auth:api'])->group(function () {
 
 // --- B. SaaS 服務展示與購買 ---
 Route::prefix('common')->group(function () {
-    Route::post('shopbrand', [ShopBrandController::class, 'getBrandByCode']);
-    Route::get('courses', [ShopBrandController::class, 'getShopCourses'])->middleware('auth:api');
+    // Route::post('shopbrand', [ShopBrandController::class, 'getBrandByCode']);
+    // Route::get('courses', [ShopBrandController::class, 'getShopCourses'])->middleware('auth:api');
     Route::get('products/{material_id}', [CommonProductController::class, 'getProductDetail']);
     Route::get('teacher', [CommonTeacherController::class, 'getTeacherInfo']);
     Route::get('feedback', [CommonFeedbackController::class, 'getFeedbackByCourseId']);
@@ -100,6 +100,11 @@ Route::post('order/ecpay/callback', [ECPayCallbackController::class, 'handleCall
 Route::get('user/course-record', [CourseRecordController::class, 'getCourseDetailsByUserId'])->middleware('auth:api');
 Route::get('user/payment-record', [UserPaymentRecordController::class, 'getPaymentDetailsByUserId'])->middleware('auth:api');
 Route::get('/user/tickets', [UserTicketController::class, 'index'])->middleware('auth:api');
+// --- Common API ---
+Route::prefix('common')->group(function () {
+    Route::post('shopbrand', [ShopBrandController::class, 'getBrandByCode']);
+    Route::get('courses', [ShopBrandController::class, 'getShopCourses']);
+});
 
 
 // --- C. 平台管理後台 ---
